@@ -1,9 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import os
+# import os
 import json
 
 
-def get_file(path):
+def read_file(path):
     file = json.load(open(path))
-    print(file)
+    return file
