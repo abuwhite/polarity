@@ -16,7 +16,6 @@ pytest = "^6.2.4"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
-test_gendiff = "testes.test_gendiff:main"
 
 
 [build-system]
