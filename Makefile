@@ -10,9 +10,6 @@ build: clean
 lint:
 	poetry run flake8 gendiff
 
-test:
-	python -m pytest
-
 publish:
 	poetry publish --dry-run
 
