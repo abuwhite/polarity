@@ -8,7 +8,7 @@ build: clean
 	poetry build
 
 lint:
-	poetry run flake8 brain_games
+	poetry run flake8 gendiff
 
 publish:
 	poetry publish --dry-run
