@@ -5,7 +5,6 @@ from gendiff import parser
 
 
 def get_diff(file_path1, file_path2):
-    print(file_path1)
     json1 = parser.read_file(file_path1)
     json2 = parser.read_file(file_path2)
     keys_json1 = sorted(list(json1.keys()))
