@@ -25,9 +25,11 @@ jobs:
           architecture: 'x64'
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install poetry
           make install
-      - name: Test run
-        run: make test
+      - name: Test with pytest
+        run: |
+          pytest
       - name: Linter run
         run: make lint
