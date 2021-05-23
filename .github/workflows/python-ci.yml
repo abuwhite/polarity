@@ -30,6 +30,6 @@ jobs:
           make install
       - name: Test with pytest
         run: |
-          pytest
+          make test
       - name: Linter run
         run: make lint
