@@ -14,7 +14,7 @@ test:
 	poetry run pytest gendiff tests/
 
 test-cov:
-	poetry run pytest --cov=gendiff tests/
+	poetry run pytest --cov=gendiff tests/ --cov-report xml
 
 publish:
 	poetry publish --dry-run
