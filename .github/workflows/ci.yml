@@ -1,49 +1,78 @@
-name: build
+#######################################
+#       Author: Boris Zhenikhov       #
+#     Email: samyyklass@gmail.com     #
+#######################################
+
+
+name: Github CI
+
 on:
-  push:
-    branches:
-      - master
-    tags:
-      - '!*' # Do not execute on tags
-    paths:
-      - src/*
-      - test/*
-      - '*.json'
-      - yarn.lock
-  pull_request:
-    paths:
-      - '!*.MD'
+  - push
+
 jobs:
-  test:
+  build:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [ ubuntu-latest, macOS-latest ]
-        node: [ '12', '10' ]
-    name: test/node ${{ matrix.node }}/${{ matrix.platform }}
-    runs-on: ${{ matrix.platform }}
+        python-version: [3.6, 3.7, 3.8]
+
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: ${{ matrix.node }}
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
-    - run: yarn test
-  coverage:
-    needs: [ test ]
-    name: coverage
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          make install
+#      - name: Test with pytest
+#        run: |
+#          make test
+#      - name: Test coverage
+#        run: make test-cov
+#
+#      - name: Linter run
+#        run: make lint
+  test:
+    needs: [build]
+    name: Test & publish code coverage
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: '12'
-    - run: npm install -g yarn
-    - run: yarn install
-    - run: yarn build
-    - uses: paambaati/codeclimate-action@v2.2.4
-      env:
-        CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f
-      with:
-        coverageCommand: yarn coverage
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          make install
+      - name: Test run
+        run: |
+          make test
+      - name: Test code coverage
+        run: make test-cov
+      - name: Publish test code coverage
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f
+  lint:
+    needs: [ test ]
+    name: Check code lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          make install
+      - name: Linter run
+        run: make lint
