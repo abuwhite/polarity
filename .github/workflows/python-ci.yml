@@ -35,3 +35,7 @@ jobs:
         run: make test-cov
       - name: Linter run
         run: make lint
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f

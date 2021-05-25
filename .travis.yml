@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f
+    - CC_TEST_REPORTER_ID=ABC
 
 language: python
 python: 3.8
@@ -10,7 +10,6 @@ install: make
 before_install:
   - pip install poetry
   - pip install flake8
-  - pip install PyYAML
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
