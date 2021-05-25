@@ -48,8 +48,8 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
-        - name: Test with pytest
-          run: |
-            make test
-        - name: Test coverage
-          run: make test-cov
+      - name: Test with pytest
+        run: |
+          make test
+      - name: Test coverage
+        run: make test-cov
