@@ -1,9 +1,8 @@
-#-----------------------
-# Python CI
-#
-# Boris Zhenikhov
-# 23 May 2021
-#-----------------------
+#######################################
+#       Author: Boris Zhenikhov       #
+#     Email: samyyklass@gmail.com     #
+#######################################
+
 
 name: Python CI
 
@@ -28,14 +27,29 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           make install
-      - name: Test with pytest
-        run: |
-          make test
-      - name: Test coverage
-        run: make test-cov
-      - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v2.7.5
-        env:
-          CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f
-      - name: Linter run
-        run: make lint
+#      - name: Test with pytest
+#        run: |
+#          make test
+#      - name: Test coverage
+#        run: make test-cov
+#      - name: Test & publish code coverage
+#        uses: paambaati/codeclimate-action@v2.7.5
+#        env:
+#          CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f
+#      - name: Linter run
+#        run: make lint
+  test:
+    needs: [build]
+    name: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+        - name: Test with pytest
+          run: |
+            make test
+        - name: Test coverage
+          run: make test-cov
