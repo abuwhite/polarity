@@ -27,14 +27,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           make install
-#      - name: Test with pytest
-#        run: |
-#          make test
-#      - name: Test coverage
-#        run: make test-cov
-#
-#      - name: Linter run
-#        run: make lint
   test:
     needs: [build]
     name: Test & publish code coverage
