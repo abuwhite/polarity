@@ -31,5 +31,7 @@ jobs:
       - name: Test with pytest
         run: |
           make test
+      - name: Test coverage
+        run: make test-cov
       - name: Linter run
         run: make lint
