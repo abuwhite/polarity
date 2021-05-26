@@ -1,10 +1,8 @@
 install:
 	poetry install
 
-clean:
-	 rm -rf /home/notabu/python-project-lvl2/dist/*
-
-build: clean
+build:
+	rm -rf dist/*
 	poetry build
 
 lint:
