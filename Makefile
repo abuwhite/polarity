@@ -22,9 +22,9 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl --force-reinstall
 
-deeploy: test test-cov lint build package-install install
+deeploy: build package-install install test test-cov lint
 
-git:
+git: deeploy
 	git add .
 	git commit -m "fix"
 	git push
