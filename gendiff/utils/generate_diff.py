@@ -11,9 +11,6 @@ def check_diff(file_path1, file_path2):
     Args:
         file_path1: Первый файл
         file_path2: Второй файл
-
-    Returns:
-        str: Результат
     """
     json1 = parser.read_file(file_path1)
     json2 = parser.read_file(file_path2)
@@ -36,3 +33,7 @@ def check_diff(file_path1, file_path2):
         list_str.append(' + {k}: {v}'.format(k=key2, v=json2.get(key2)))
 
     return '{o}{data}{c}'.format(o='{\n', data='\n'.join(list_str), c='\n}')
+
+
+def diff_print(*args):
+    print(check_diff(*args))

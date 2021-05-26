@@ -2,7 +2,9 @@
 
 """Parser."""
 
+import os
 import json
+import yaml
 
 
 def read_file(path):
@@ -14,5 +16,14 @@ def read_file(path):
     Returns:
         set: Возвращаем данные из файла.
     """
-    with open(path) as file_obj:
-        return json.load(file_obj)
+    full_name = os.path.basename(path)
+    name = os.path.splitext(full_name)[1]
+
+    if name == '.json':
+        with open(path) as file_json:
+            return json.load(file_json)
+    elif name in {'.yml', '.yaml'}:
+        with open(path) as file_yaml:
+            return yaml.safe_load(file_yaml)
+    else:
+        print('Oops, you can only process JSON or YAML files.')

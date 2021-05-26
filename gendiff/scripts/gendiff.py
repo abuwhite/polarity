@@ -9,7 +9,7 @@ from gendiff.utils import generate_diff
 
 def main():
     """Скрипт запуска сравнения файлов."""
-    cli.run(generate_diff.check_diff)
+    cli.run(generate_diff.diff_print)
 
 
 if __name__ == '__main__':
