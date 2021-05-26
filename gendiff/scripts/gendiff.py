@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from gendiff import cli, generate_diff
+"""The main client module of gendiff."""
+
+from gendiff import cli
+from gendiff.utils import generate_diff
 
 
 def main():
-    args = cli.run()
-    generate_diff.output(args)
+    """Скрипт запуска сравнения файлов."""
+    cli.run(generate_diff.check_diff)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
