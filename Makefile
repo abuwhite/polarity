@@ -22,5 +22,12 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl --force-reinstall
 
+deeploy: test test-cov lint build package-install install
+
+git:
+	git add .
+	git commit -m "fix"
+	git push
+
 gendiff:
 	poetry run gendiff
