@@ -2,8 +2,9 @@
 
 """Parser."""
 
-import os
 import json
+import os
+
 import yaml
 
 

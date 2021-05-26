@@ -11,6 +11,9 @@ def check_diff(file_path1, file_path2):
     Args:
         file_path1: Первый файл
         file_path2: Второй файл
+
+    Returns:
+          str: Результат
     """
     json1 = parser.read_file(file_path1)
     json2 = parser.read_file(file_path2)
@@ -36,4 +39,9 @@ def check_diff(file_path1, file_path2):
 
 
 def diff_print(*args):
+    """Печать результата.
+
+    Args:
+        args: Аргументы
+    """
     print(check_diff(*args))
