@@ -27,5 +27,11 @@ git: deeploy
 	git commit -m "fix"
 	git push
 
+test-tree:
+	poetry run gendiff tests/fixtures/test_tree1.json tests/fixtures/test_tree2.json
+
+test-flat:
+	poetry run gendiff tests/fixtures/test_file1.json tests/fixtures/test_file2.json
+
 gendiff:
 	poetry run gendiff
