@@ -3,8 +3,7 @@
 
 """The main client module of gendiff."""
 
-from gendiff import cli
-from gendiff.utils import gen_diff
+from gendiff import cli, gen_diff
 
 
 def main():
