@@ -3,6 +3,7 @@
 """Args."""
 
 import argparse
+from gendiff.parser import read_file
 
 
 def run(diff):
@@ -19,4 +20,6 @@ def run(diff):
     parser.add_argument('second_file')
     parser.add_argument('-f', '--format', help='set format of output')
     args = parser.parse_args()
-    return diff(args.first_file, args.second_file)
+    file1 = read_file(args.first_file)
+    file2 = read_file(args.second_file)
+    return diff(file1, file2)
