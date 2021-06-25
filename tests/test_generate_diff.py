@@ -23,6 +23,6 @@ def test_data():
     file1 = read_file(BEFORE_PATH)
     file2 = read_file(AFTER_PATH)
     data = generate_diff(file1, file2)
-    print(stylish_correct)
-    print(stylish.make_stylish(data))
+    print('!', stylish_correct)
+    print('!!!', stylish.make_stylish(data))
     assert stylish.make_stylish(data) == stylish_correct
