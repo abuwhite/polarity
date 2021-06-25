@@ -1,19 +1,28 @@
 # -*- coding: utf-8 -*-
 """Test gen_diff.py"""
 
-from gendiff import generate_diff
+from gendiff import generate_diff, stylish
+from gendiff.parser import read_file
 
-BEFORE_PATH = 'tests/fixtures/plain1.json'
-AFTER_PATH = 'tests/fixtures/plain2.json'
+with open('tests/fixtures/correct_stylish.txt', 'r') as file:
+    stylish_correct = file.read()
+
+BEFORE_PATH = 'tests/fixtures/file1.json'
+AFTER_PATH = 'tests/fixtures/file2.json'
 
 
 def test_type():
     print('in test_type')
-    assert type(generate_diff(BEFORE_PATH, AFTER_PATH)) == str
+    file1 = read_file(BEFORE_PATH)
+    file2 = read_file(AFTER_PATH)
+    assert isinstance(generate_diff(file1, file2), list)
 
 
 def test_data():
     print('in test_data')
-    with open('tests/fixtures/plain_files.txt') as file:
-        correct_result = file.read()
-    assert generate_diff(BEFORE_PATH, AFTER_PATH) == correct_result
+    file1 = read_file(BEFORE_PATH)
+    file2 = read_file(AFTER_PATH)
+    data = generate_diff(file1, file2)
+    print(stylish_correct)
+    print(stylish.make_stylish(data))
+    assert stylish.make_stylish(data) == stylish_correct

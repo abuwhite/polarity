@@ -6,11 +6,8 @@ import argparse
 from gendiff.parser import read_file
 
 
-def run(diff):
+def run():
     """Возвращаем принятые аргументы.
-
-    Args:
-        diff: Функция сравнения.
 
     Returns:
         class: 'argparse.Namespace'
@@ -22,4 +19,4 @@ def run(diff):
     args = parser.parse_args()
     file1 = read_file(args.first_file)
     file2 = read_file(args.second_file)
-    return diff(file1, file2)
+    return file1, file2

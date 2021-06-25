@@ -3,12 +3,13 @@
 
 """The main client module of gendiff."""
 
-from gendiff import cli, gen_diff
+from gendiff import cli, stylish
 
 
 def main():
     """Скрипт запуска сравнения файлов."""
-    cli.run(gen_diff.diff_print)
+    args = cli.run()
+    stylish.diff_print(*args)
 
 
 if __name__ == '__main__':

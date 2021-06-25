@@ -2,8 +2,14 @@
 
 """Constants."""
 
-DICT = 'is_dict'
-ADDED = 'added'
-REMOVED = 'removed'
-CHANGED = 'changed'
-UNCHANGED = 'unchanged'
+FLAG = 'status'
+SPACE = '    '
+FLAGS = {
+    'is_dict': '',
+    'changed': '+',
+    'changed_new': '+',
+    'changed_old': '-',
+    'unchanged': ' ',
+    'added': '+',
+    'removed': '-',
+}

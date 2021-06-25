@@ -2,32 +2,26 @@
 
 """Module with the function gendiff."""
 
-from gendiff.constants import DICT, ADDED, REMOVED, CHANGED, UNCHANGED
-from gendiff.stylish import formatter
+from gendiff.constants import FLAG
 
 
-def generate_diff(file1, file2):
-    data = []
+def generate_diff(data1, data2):
+    result = []
 
-    for key in sorted(file1.keys() | file2.keys()):
-        value1 = file1.get(key)
-        value2 = file2.get(key)
+    for key in sorted(data1.keys() | data2.keys()):
+        value1 = data1.get(key)
+        value2 = data2.get(key)
 
         if isinstance(value1, dict) and isinstance(value2, dict):
             if value1 != value2:
-                data.append({'condition': DICT, 'key': key, 'value': None, 'children': generate_diff(value1, value2)})
-            data.append({'condition': DICT, 'key': key, 'value': value1, 'children': None})
+                result.append({FLAG: 'is_dict', 'name': key, 'children': generate_diff(value1, value2)})
         elif value1 == value2:
-            data.append({'condition': UNCHANGED, 'key': key, 'value': value1, 'children': None})
-        elif key in file1 and key not in file2:
-            data.append({'condition': REMOVED, 'key': key, 'value': value1, 'children': None})
-        elif key in file2 and key not in file1:
-            data.append({'condition': ADDED, 'key': key, 'value': value2, 'children': None})
+            result.append({FLAG: 'unchanged', 'name': key, 'value': value1})
+        elif key not in data2:
+            result.append({FLAG: 'removed', 'name': key, 'value': value1})
+        elif key not in data1:
+            result.append({FLAG: 'added', 'name': key, 'value': value2})
         else:
-            data.append({'condition': CHANGED, 'key': key, 'value': [value1, value2], 'children': None})
-
-    return data
-
-
-def diff_print(*args):
-    print(formatter(generate_diff(*args)))
+            result.append({FLAG: 'changed_old', 'name': key, 'value': value1})
+            result.append({FLAG: 'changed_new', 'name': key, 'value': value2})
+    return result

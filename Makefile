@@ -30,8 +30,11 @@ git: deeploy
 test-stylish:
 	poetry run gendiff tests/fixtures/stylish1.json tests/fixtures/stylish2.json
 
-test-plain:
-	poetry run gendiff tests/fixtures/plain1.json tests/fixtures/plain2.json
+test-json:
+	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+
+test-yml:
+	poetry run gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
 
 gendiff:
 	poetry run gendiff
