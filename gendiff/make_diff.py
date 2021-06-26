@@ -14,7 +14,7 @@ def make_diffs_representation(data1, data2):
 
         if isinstance(value1, dict) and isinstance(value2, dict):
             if value1 != value2:
-                result.append({FLAG: 'is_dict', 'name': key, 'children': make_diffs_representation(value1, value2)})
+                result.append({FLAG: 'is_dict', 'name': key, 'value': make_diffs_representation(value1, value2)})
         elif value1 == value2:
             result.append({FLAG: 'unchanged', 'name': key, 'value': value1})
         elif key not in data2:
@@ -25,3 +25,16 @@ def make_diffs_representation(data1, data2):
             result.append({FLAG: 'changed_old', 'name': key, 'value': value1})
             result.append({FLAG: 'changed_new', 'name': key, 'value': value2})
     return result
+
+
+def get_condition(node):
+    return node['status']
+
+
+def get_value(node):
+    print(node)
+    return node['value']
+
+
+def get_name(node):
+    return node['name']

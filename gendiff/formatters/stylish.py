@@ -14,12 +14,11 @@ def make_stylish(items, tier=0):
         name = item.get('name')
         condition = item.get('status')
         value = item.get('value')
-        children = item.get('children')
         flag = FLAGS.get(condition)
 
         if condition == 'is_dict':
             result += f'{indent}  {flag}  {name}: '
-            result += make_stylish(children, tier + 1)
+            result += make_stylish(value, tier + 1)
         else:
             value = formatter(value, indent + SPACE)
             result += f'{indent}  {flag} {name}: {value}'

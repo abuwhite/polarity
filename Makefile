@@ -20,21 +20,18 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl --force-reinstall
 
-deeploy: build package-install install test test-cov lint
+deploy: build package-install install test test-cov lint
 
-git: deeploy
+git: deploy
 	git add .
-	git commit -m "fix"
+	git commit -m "project deploy test"
 	git push
 
 test-stylish:
-	poetry run gendiff tests/fixtures/stylish1.json tests/fixtures/stylish2.json
-
-test-json:
 	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 
-test-yml:
-	poetry run gendiff tests/fixtures/file1.yml tests/fixtures/file2.yml
+test-plain:
+	poetry run gendiff --format plain tests/fixtures/file1.json tests/fixtures/file2.json
 
 gendiff:
 	poetry run gendiff
