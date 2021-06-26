@@ -2,13 +2,7 @@
 
 """This is import function scripts."""
 
-from gendiff import gen_diff
 from gendiff.constants import SPACE, FLAGS
-
-
-def diff_print(file1, file2):
-    data = gen_diff.generate_diff(file1, file2)
-    print(make_stylish(data))
 
 
 def make_stylish(items, tier=0):

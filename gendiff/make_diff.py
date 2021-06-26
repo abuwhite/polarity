@@ -5,7 +5,7 @@
 from gendiff.constants import FLAG
 
 
-def generate_diff(data1, data2):
+def make_diffs_representation(data1, data2):
     result = []
 
     for key in sorted(data1.keys() | data2.keys()):
@@ -14,7 +14,7 @@ def generate_diff(data1, data2):
 
         if isinstance(value1, dict) and isinstance(value2, dict):
             if value1 != value2:
-                result.append({FLAG: 'is_dict', 'name': key, 'children': generate_diff(value1, value2)})
+                result.append({FLAG: 'is_dict', 'name': key, 'children': make_diffs_representation(value1, value2)})
         elif value1 == value2:
             result.append({FLAG: 'unchanged', 'name': key, 'value': value1})
         elif key not in data2:

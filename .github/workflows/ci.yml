@@ -42,7 +42,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           make install
-      - name: Test run
+      - name: Test get_args
         run: |
           make test
       - name: Test code coverage
@@ -66,5 +66,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           make install
-      - name: Linter run
+      - name: Linter get_args
         run: make lint

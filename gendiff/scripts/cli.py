@@ -1,12 +1,13 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """Args."""
 
 import argparse
-from gendiff.parser import read_file
+from gendiff.gendiff import generate_diff
 
 
-def run():
+def get_args():
     """Возвращаем принятые аргументы.
 
     Returns:
@@ -17,6 +18,16 @@ def run():
     parser.add_argument('second_file')
     parser.add_argument('-f', '--format', help='set format of output')
     args = parser.parse_args()
-    file1 = read_file(args.first_file)
-    file2 = read_file(args.second_file)
-    return file1, file2
+    return args
+
+
+def main():
+    """Скрипт запуска сравнения файлов."""
+    print(generate_diff(get_args().first_file,
+                        get_args().second_file,
+                        format_output=get_args().format)
+          )
+
+
+if __name__ == '__main__':
+    main()
