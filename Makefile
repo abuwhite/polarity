@@ -33,5 +33,8 @@ test-stylish:
 test-plain:
 	poetry run gendiff --format plain tests/fixtures/file1.json tests/fixtures/file2.json
 
+test-json:
+	poetry run gendiff --format json tests/fixtures/file1.json tests/fixtures/file2.json
+
 gendiff:
 	poetry run gendiff

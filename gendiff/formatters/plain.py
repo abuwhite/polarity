@@ -2,9 +2,6 @@
 
 """This is import function scripts."""
 
-from gendiff.constants import SPACE, FLAGS
-from gendiff.make_diff import get_value, get_name, get_condition
-
 
 def make_plain(items):
     plaint_output = generate_plain_string(items)
