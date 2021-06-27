@@ -40,10 +40,17 @@ def test_yaml_stylish():
     assert stylish.make_stylish(data) == stylish_correct
 
 
-def test_plain():
-    print('in test_plain')
+def test_json_plain():
+    print('in test_yaml_plain')
     file1 = get_dict(FIRST_JSON)
     file2 = get_dict(SECOND_JSON)
     data = make_diffs_representation(file1, file2)
-    print(plain.make_plain(data))
+    assert plain.make_plain(data) == plain_correct
+
+
+def test_yaml_plain():
+    print('in test_yaml_plain')
+    file1 = get_dict(FIRST_YAML)
+    file2 = get_dict(SECOND_YAML)
+    data = make_diffs_representation(file1, file2)
     assert plain.make_plain(data) == plain_correct
