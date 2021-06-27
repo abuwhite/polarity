@@ -17,10 +17,17 @@ with open('tests/fixtures/result_plain.txt', 'r') as file:
     plain_correct = file.read()
 
 
-def test_make_diffs():
-    print('in test_make_diffs')
+def test_json_make_diffs():
+    print('in test_yaml_make_diffs')
     file1 = get_dict(FIRST_JSON)
     file2 = get_dict(SECOND_JSON)
+    assert isinstance(make_diffs_representation(file1, file2), list)
+
+
+def test_yaml_make_diffs():
+    print('in test_yaml_make_diffs')
+    file1 = get_dict(FIRST_YAML)
+    file2 = get_dict(SECOND_YAML)
     assert isinstance(make_diffs_representation(file1, file2), list)
 
 
