@@ -5,8 +5,10 @@ from gendiff import make_diffs_representation
 from gendiff.formatters import stylish, plain
 from gendiff.parser import get_dict
 
-BEFORE_PATH = 'tests/fixtures/file1.json'
-AFTER_PATH = 'tests/fixtures/file2.json'
+FIRST_JSON = 'tests/fixtures/file1.json'
+SECOND_JSON = 'tests/fixtures/file2.json'
+FIRST_YAML = 'tests/fixtures/file1.yml'
+SECOND_YAML = 'tests/fixtures/file2.yml'
 
 with open('tests/fixtures/result_stylish.txt', 'r') as file:
     stylish_correct = file.read()
@@ -17,23 +19,31 @@ with open('tests/fixtures/result_plain.txt', 'r') as file:
 
 def test_make_diffs():
     print('in test_make_diffs')
-    file1 = get_dict(BEFORE_PATH)
-    file2 = get_dict(AFTER_PATH)
+    file1 = get_dict(FIRST_JSON)
+    file2 = get_dict(SECOND_JSON)
     assert isinstance(make_diffs_representation(file1, file2), list)
 
 
-def test_stylish():
-    print('in test_stylish')
-    file1 = get_dict(BEFORE_PATH)
-    file2 = get_dict(AFTER_PATH)
+def test_json_stylish():
+    print('in test_yaml_stylish')
+    file1 = get_dict(FIRST_JSON)
+    file2 = get_dict(SECOND_JSON)
+    data = make_diffs_representation(file1, file2)
+    assert stylish.make_stylish(data) == stylish_correct
+
+
+def test_yaml_stylish():
+    print('in test_yaml_stylish')
+    file1 = get_dict(FIRST_YAML)
+    file2 = get_dict(SECOND_YAML)
     data = make_diffs_representation(file1, file2)
     assert stylish.make_stylish(data) == stylish_correct
 
 
 def test_plain():
     print('in test_plain')
-    file1 = get_dict(BEFORE_PATH)
-    file2 = get_dict(AFTER_PATH)
+    file1 = get_dict(FIRST_JSON)
+    file2 = get_dict(SECOND_JSON)
     data = make_diffs_representation(file1, file2)
     print(plain.make_plain(data))
     assert plain.make_plain(data) == plain_correct
