@@ -2,44 +2,43 @@
 
 """This is import function scripts."""
 
-from gendiff.constants import SPACE, FLAGS
+import json
 
 
-def make_json(items, tier=0):
-    result: str = '{'
-    indent: str = SPACE * tier
+def make_json(diffs) -> str:
+    """
+    Formatting the difference representation to json
+    :param:
+        diffs: dict.
+    :return:
+        str.
+    """
+    formatted_dict = dict_formatting(diffs)
+    json_output: str = json.dumps(formatted_dict, sort_keys=True, indent=4)
+    if not formatted_dict:
+        return '{\n}'
+    return json_output
 
-    for item in items:
-        result += '\n'
-        name = item.get('name')
-        condition = item.get('status')
-        value = item.get('value')
 
-        if condition == 'is_dict':
-            result += '{ind}  "{nme}": '.format(ind=indent, nme=name)
-            result += make_json(value, tier + 1)
+def dict_formatting(diffs, parent_name=None):
+    result = {}
+    for diff in diffs:
+        name = diff.get('name')
+        condition = diff.get('condition')
+        value = diff.get('value')
+        if parent_name is None:
+            current_key = str(name)
         else:
-            value = formatter(value, indent + SPACE)
-            result += '{ind}  "{nme}": {val}'.format(ind=indent, nme=name, val=value)
-    result += f'\n{indent}}}'
+            current_key = f"{parent_name}.{name}"
+        if condition == 'is_dict':
+            value = dict_formatting(value, parent_name=current_key)
+            result[current_key] = {
+                'condition': condition,
+                'value': value,
+            }
+        else:
+            result[current_key] = {
+                'condition': condition,
+                'value': value,
+            }
     return result
-
-
-def formatter(value, indent):
-    if isinstance(value, bool):
-        return "true" if value else "false"
-    if isinstance(value, int):
-        return value
-    if isinstance(value, str):
-        return '"{}"'.format(value)
-    if value is None:
-        return "null"
-    if isinstance(value, dict):
-        string = "{\n"
-        for key, value in value.items():
-            string += '{s}{i}"{k}": '.format(s=SPACE, i=indent, k=key)
-            string += f"{formatter(value, indent + SPACE)}"
-            string += "\n"
-        string += f"{indent}}}"
-        return string
-    return value

@@ -22,10 +22,6 @@ package-install:
 
 deploy: build package-install install test test-cov lint
 
-git: deploy
-	git add .
-	git commit -m "project deploy test"
-	git push
 
 test-stylish:
 	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json

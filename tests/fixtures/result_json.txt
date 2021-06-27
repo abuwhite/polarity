@@ -1,0 +1,206 @@
+{
+    "common": {
+        "condition": null,
+        "value": [
+            {
+                "name": "follow",
+                "status": "added",
+                "value": false
+            },
+            {
+                "name": "setting1",
+                "status": "unchanged",
+                "value": "Value 1"
+            },
+            {
+                "name": "setting2",
+                "status": "removed",
+                "value": 200
+            },
+            {
+                "name": "setting3",
+                "status": "changed_old",
+                "value": true
+            },
+            {
+                "name": "setting3",
+                "status": "changed_new",
+                "value": {
+                    "key": "value"
+                }
+            },
+            {
+                "name": "setting4",
+                "status": "added",
+                "value": "blah blah"
+            },
+            {
+                "name": "setting5",
+                "status": "added",
+                "value": {
+                    "key5": "value5"
+                }
+            },
+            {
+                "name": "setting6",
+                "status": "is_dict",
+                "value": [
+                    {
+                        "name": "doge",
+                        "status": "is_dict",
+                        "value": [
+                            {
+                                "name": "wow",
+                                "status": "changed_old",
+                                "value": "too much"
+                            },
+                            {
+                                "name": "wow",
+                                "status": "changed_new",
+                                "value": "so much"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "key",
+                        "status": "unchanged",
+                        "value": "value"
+                    },
+                    {
+                        "name": "ops",
+                        "status": "added",
+                        "value": "vops"
+                    }
+                ]
+            }
+        ]
+    },
+    "group1": {
+        "condition": null,
+        "value": [
+            {
+                "name": "baz",
+                "status": "changed_old",
+                "value": "bas"
+            },
+            {
+                "name": "baz",
+                "status": "changed_new",
+                "value": "bars"
+            },
+            {
+                "name": "foo",
+                "status": "unchanged",
+                "value": "bar"
+            },
+            {
+                "name": "nest",
+                "status": "changed_old",
+                "value": {
+                    "key": "value"
+                }
+            },
+            {
+                "name": "nest",
+                "status": "changed_new",
+                "value": "str"
+            }
+        ]
+    },
+    "group2": {
+        "condition": null,
+        "value": {
+            "abc": 12345,
+            "deep": {
+                "id": 45
+            }
+        }
+    },
+    "group3": {
+        "condition": null,
+        "value": {
+            "deep": {
+                "id": {
+                    "number": 45
+                }
+            },
+            "fee": 100500
+        }
+    },
+    "group4": {
+        "condition": null,
+        "value": [
+            {
+                "name": "default",
+                "status": "changed_old",
+                "value": null
+            },
+            {
+                "name": "default",
+                "status": "changed_new",
+                "value": ""
+            },
+            {
+                "name": "foo",
+                "status": "changed_old",
+                "value": 0
+            },
+            {
+                "name": "foo",
+                "status": "changed_new",
+                "value": null
+            },
+            {
+                "name": "isNested",
+                "status": "changed_old",
+                "value": false
+            },
+            {
+                "name": "isNested",
+                "status": "changed_new",
+                "value": "none"
+            },
+            {
+                "name": "key",
+                "status": "added",
+                "value": false
+            },
+            {
+                "name": "nest",
+                "status": "is_dict",
+                "value": [
+                    {
+                        "name": "bar",
+                        "status": "changed_old",
+                        "value": ""
+                    },
+                    {
+                        "name": "bar",
+                        "status": "changed_new",
+                        "value": 0
+                    },
+                    {
+                        "name": "isNested",
+                        "status": "removed",
+                        "value": true
+                    }
+                ]
+            },
+            {
+                "name": "someKey",
+                "status": "added",
+                "value": true
+            },
+            {
+                "name": "type",
+                "status": "changed_old",
+                "value": "bas"
+            },
+            {
+                "name": "type",
+                "status": "changed_new",
+                "value": "bar"
+            }
+        ]
+    }
+}

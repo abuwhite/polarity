@@ -2,7 +2,7 @@
 """Test make_diff.py"""
 
 from gendiff import make_diffs_representation
-from gendiff.formatters import stylish, plain
+from gendiff.formatters import stylish, plain, json
 from gendiff.parser import get_dict
 
 FIRST_JSON = 'tests/fixtures/file1.json'
@@ -15,6 +15,9 @@ with open('tests/fixtures/result_stylish.txt', 'r') as file:
 
 with open('tests/fixtures/result_plain.txt', 'r') as file:
     plain_correct = file.read()
+
+with open('tests/fixtures/result_json.txt', 'r') as file:
+    json_correct = file.read()
 
 
 def test_json_make_diffs():
@@ -48,7 +51,7 @@ def test_yaml_stylish():
 
 
 def test_json_plain():
-    print('in test_yaml_plain')
+    print('in test_yaml_json')
     file1 = get_dict(FIRST_JSON)
     file2 = get_dict(SECOND_JSON)
     data = make_diffs_representation(file1, file2)
@@ -56,8 +59,24 @@ def test_json_plain():
 
 
 def test_yaml_plain():
-    print('in test_yaml_plain')
+    print('in test_yaml_json')
     file1 = get_dict(FIRST_YAML)
     file2 = get_dict(SECOND_YAML)
     data = make_diffs_representation(file1, file2)
     assert plain.make_plain(data) == plain_correct
+
+
+def test_json_json():
+    print('in test_yaml_json')
+    file1 = get_dict(FIRST_JSON)
+    file2 = get_dict(SECOND_JSON)
+    data = make_diffs_representation(file1, file2)
+    assert json.make_json(data) == json_correct
+
+
+def test_yaml_json():
+    print('in test_yaml_json')
+    file1 = get_dict(FIRST_YAML)
+    file2 = get_dict(SECOND_YAML)
+    data = make_diffs_representation(file1, file2)
+    assert json.make_json(data) == json_correct
