@@ -13,3 +13,5 @@ FLAGS = {
     'added': '+',
     'removed': '-',
 }
+NAME = 'name'
+VALUE = 'value'

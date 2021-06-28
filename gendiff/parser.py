@@ -4,31 +4,53 @@
 
 import json
 import os
+
 import yaml
 
 
-def json_parse(file):
-    data = json.loads(open(file, 'r').read())
-    return data
-
-
-def yaml_parse(file):
-    data = yaml.safe_load(open(file, 'r').read())
-    return data
-
-
-def get_dict(path):
+def json_parse(filename):
     """Открываем и возвращаем данные из файла.
 
     Args:
-        path: Абсолютный или относительный адрес файла.
+        filename: Абсолютный или относительный адрес файла.
 
     Returns:
-        set: Возвращаем данные из файла.
+        str: Возвращаем данные из файла.
     """
-    extension = os.path.splitext(path)[-1]
+    with open(filename, 'r') as file_obj:
+        json_file = file_obj.read()
+    return json.loads(json_file)
+
+
+def yaml_parse(filename):
+    """Открываем и возвращаем данные из файла.
+
+    Args:
+        filename: Абсолютный или относительный адрес файла.
+
+    Returns:
+        str: Возвращаем данные из файла.
+    """
+    with open(filename, 'r') as file_obj:
+        yaml_file = file_obj.read()
+    return yaml.safe_load(yaml_file)
+
+
+def get_dict(filename):
+    """Открываем и возвращаем данные из файла.
+
+    Args:
+        filename: Абсолютный или относительный адрес файла.
+
+    Raises:
+        NotImplementedError: Error log.
+
+    Returns:
+        str: Returning file data.
+    """
+    extension = os.path.splitext(filename)[-1]
     if extension == '.json':
-        return json_parse(path)
+        return json_parse(filename)
     elif extension in {'.yml', '.yaml'}:
-        return yaml_parse(path)
-    raise NotImplementedError(f"Unsupported file type {extension}")
+        return yaml_parse(filename)
+    raise NotImplementedError('Unsupported file type {ex}'.format(ex=extension))

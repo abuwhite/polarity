@@ -6,12 +6,13 @@ import json
 
 
 def make_json(diffs) -> str:
-    """
-    Formatting the difference representation to json
-    :param:
-        diffs: dict.
-    :return:
-        str.
+    """Form an intermediate json representation.
+
+    Args:
+        diffs: String.
+
+    Returns:
+        json_output(str): Json output
     """
     formatted_dict = dict_formatting(diffs)
     json_output: str = json.dumps(formatted_dict, sort_keys=True, indent=4)
@@ -21,24 +22,33 @@ def make_json(diffs) -> str:
 
 
 def dict_formatting(diffs, parent_name=None):
-    result = {}
+    """Create a dictionary.
+
+    Args:
+        diffs: Dict.
+        parent_name: None
+
+    Returns:
+        result(dict): Dict output
+    """
+    diffs_dict = {}
     for diff in diffs:
         name = diff.get('name')
         condition = diff.get('condition')
-        value = diff.get('value')
+        diff_value = diff.get('value')
         if parent_name is None:
             current_key = str(name)
         else:
-            current_key = f"{parent_name}.{name}"
+            current_key = '{p}.{n}'.format(p=parent_name, n=name)
         if condition == 'is_dict':
-            value = dict_formatting(value, parent_name=current_key)
-            result[current_key] = {
+            value_dict = dict_formatting(diff_value, parent_name=current_key)
+            diffs_dict[current_key] = {
                 'condition': condition,
-                'value': value,
+                'value': value_dict,
             }
         else:
-            result[current_key] = {
+            diffs_dict[current_key] = {
                 'condition': condition,
-                'value': value,
+                'value': diff_value,
             }
-    return result
+    return diffs_dict

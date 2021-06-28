@@ -3,50 +3,72 @@
 """This is import function scripts."""
 
 
-def make_plain(items):
-    plaint_output = generate_plain_string(items)
+def make_plain(dicts):
+    """Generate a plain format.
+
+    Args:
+        dicts: Dict.
+
+    Returns:
+        str: Plain format.
+    """
+    plaint_output = generate_plain_string(dicts)
     if plaint_output:
         return plaint_output[:-1]
-    else:
-        return '{\n}'
+    return '{\n}'
 
 
 def generate_plain_string(diffs, parent_name=''):
-    result: str = ''
+    """Generate a plain string format.
+
+    Args:
+        diffs: Dict.
+        parent_name: Keys.
+
+    Returns:
+        str: String plains.
+    """
+    plains: str = ''
     for diff in diffs:
         name = diff.get('name')
         condition = diff.get('status')
-        value = diff.get('value')
+        meaning = diff.get('value')
         if parent_name:
-            key_full_path = f"{parent_name}.{name}"
+            full_key = '{p}.{n}'.format(p=parent_name, n=name)
         else:
-            key_full_path = name
+            full_key = name
 
-        base_string = f"Property '{key_full_path}' was"
-        value_string = formatter(value)
+        key_str = "Property '{key}' was".format(key=full_key)
+        val_str = formatter(meaning)
 
         if condition == 'is_dict':
-            result += generate_plain_string(value, parent_name=key_full_path)
+            plains += generate_plain_string(meaning, parent_name=full_key)
         elif condition == 'changed_old':
-            result += f"{base_string} updated. From {value_string} to "
+            plains += '{k} updated. From {v} to '.format(k=key_str, v=val_str)
         elif condition == 'changed_new':
-            result += f"{value_string}\n"
+            plains += '{v}\n'.format(v=val_str)
         elif condition == 'added':
-            result += f"{base_string} added with value: {value_string}\n"
+            plains += '{b} added with value: {v}\n'.format(b=key_str, v=val_str)
         elif condition == 'removed':
-            result += f"{base_string} removed\n"
-        else:
-            pass
-    return result
+            plains += '{base} removed\n'.format(base=key_str)
+    return plains
 
 
-def formatter(value):
-    if isinstance(value, bool):
-        return "true" if value else "false"
-    if value is None:
-        return "null"
-    if isinstance(value, str):
-        return "'{val}'".format(val=value)
-    if isinstance(value, (int, float, complex)):
-        return str(value)
-    return "[complex value]"
+def formatter(value_plain):
+    """Generate value.
+
+    Args:
+        value_plain: Value.
+
+    Returns:
+        items: Values
+    """
+    if isinstance(value_plain, bool):
+        return 'true' if value_plain else 'false'
+    if value_plain is None:
+        return 'null'
+    if isinstance(value_plain, str):
+        return "'{val}'".format(val=value_plain)
+    if isinstance(value_plain, (int, float, complex)):
+        return str(value_plain)
+    return '[complex value]'

@@ -2,7 +2,7 @@
 
 """This is import function scripts."""
 
-from gendiff.constants import SPACE, FLAGS
+from gendiff.constants import FLAGS, SPACE
 
 
 def make_stylish(items, tier=0):
@@ -28,15 +28,15 @@ def make_stylish(items, tier=0):
 
 def formatter(value, indent):
     if isinstance(value, bool):
-        return "true" if value else "false"
+        return 'true' if value else 'false'
     if value is None:
-        return "null"
+        return 'null'
     if isinstance(value, dict):
-        string = "{\n"
+        string = '{\n'
         for key, value in value.items():
-            string += f"{SPACE}{indent}{key}: "
+            string += f'{SPACE}{indent}{key}: '
             string += formatter(value, indent=indent + SPACE)
-            string += "\n"
-        string += f"{indent}}}"
+            string += '\n'
+        string += f'{indent}}}'
         return string
     return str(value)
