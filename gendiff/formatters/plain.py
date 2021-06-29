@@ -65,10 +65,10 @@ def formatter(value_plain):
     """
     if isinstance(value_plain, bool):
         return 'true' if value_plain else 'false'
-    if value_plain is None:
+    elif value_plain is None:
         return 'null'
-    if isinstance(value_plain, str):
+    elif isinstance(value_plain, str):
         return "'{val}'".format(val=value_plain)
-    if isinstance(value_plain, (int, float, complex)):
+    elif isinstance(value_plain, (int, float, complex)):
         return str(value_plain)
     return '[complex value]'
