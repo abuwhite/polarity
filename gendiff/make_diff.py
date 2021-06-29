@@ -24,11 +24,10 @@ def make_diffs(data1, data2):
         val1 = data1.get(key)
         val2 = data2.get(key)
 
-        if isinstance(val1, dict) and isinstance(val2, dict):
-            if val1 != val2:
-                diffs.append({FLAG: 'is_dict', NAME: key, VALUE: make_diffs(val1, val2)})
-        elif val1 == val2:
+        if val1 == val2:
             diffs.append({FLAG: 'unchanged', NAME: key, VALUE: val1})
+        elif isinstance(val1, dict) and isinstance(val2, dict):
+            diffs.append({FLAG: 'is_dict', NAME: key, VALUE: make_diffs(val1, val2)})
         elif key not in data2:
             diffs.append({FLAG: 'removed', NAME: key, VALUE: val1})
         elif key not in data1:
