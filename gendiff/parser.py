@@ -11,18 +11,18 @@ import yaml
 def open_file(filename):
     """Open a file.
 
-        Args:
-            filename: Absolute or relative file address.
+    Args:
+        filename: Absolute or relative file address.
 
-        Returns:
-            str: Returning data from the file.
-        """
+    Returns:
+        str: Returning data from the file.
+    """
     with open(filename, 'r') as file_obj:
         return file_obj.read()
 
 
 def json_parse(json_dict):
-    """Convert from JSON to python
+    """Convert from JSON to python.
 
     Args:
         json_dict: Absolute or relative file address.
@@ -35,7 +35,7 @@ def json_parse(json_dict):
 
 
 def yaml_parse(yaml_dict):
-    """Convert from YAML to python
+    """Convert from YAML to python.
 
     Args:
         yaml_dict: Absolute or relative file address.

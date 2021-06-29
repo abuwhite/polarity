@@ -14,4 +14,4 @@ FLAGS = {
     'removed': '-',
 }
 NAME = 'name'
-VALUE = 'value'
+CON_VAL = 'value'
