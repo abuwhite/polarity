@@ -8,31 +8,42 @@ import os
 import yaml
 
 
-def json_parse(filename):
-    """Open a json file.
+def open_file(filename):
+    """Open a file.
+
+        Args:
+            filename: Absolute or relative file address.
+
+        Returns:
+            str: Returning data from the file.
+        """
+    with open(filename, 'r') as file_obj:
+        return file_obj.read()
+
+
+def json_parse(json_dict):
+    """Convert from JSON to python
 
     Args:
-        filename: Absolute or relative file address.
+        json_dict: Absolute or relative file address.
 
     Returns:
-        str: Returning data from the file.
+        dict: Returns the python dictionary.
     """
-    with open(filename, 'r') as file_obj:
-        json_file = file_obj.read()
+    json_file = open_file(json_dict)
     return json.loads(json_file)
 
 
-def yaml_parse(filename):
-    """Open a yaml file.
+def yaml_parse(yaml_dict):
+    """Convert from YAML to python
 
     Args:
-        filename: Absolute or relative file address.
+        yaml_dict: Absolute or relative file address.
 
     Returns:
-        str: Returning data from the file.
+        dict: Returns the python dictionary.
     """
-    with open(filename, 'r') as file_obj:
-        yaml_file = file_obj.read()
+    yaml_file = open_file(yaml_dict)
     return yaml.safe_load(yaml_file)
 
 
