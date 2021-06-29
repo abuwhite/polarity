@@ -9,13 +9,13 @@ import yaml
 
 
 def json_parse(filename):
-    """Открываем и возвращаем данные из файла.
+    """Open a json file.
 
     Args:
-        filename: Абсолютный или относительный адрес файла.
+        filename: Absolute or relative file address.
 
     Returns:
-        str: Возвращаем данные из файла.
+        str: Returning data from the file.
     """
     with open(filename, 'r') as file_obj:
         json_file = file_obj.read()
@@ -23,13 +23,13 @@ def json_parse(filename):
 
 
 def yaml_parse(filename):
-    """Открываем и возвращаем данные из файла.
+    """Open a yaml file.
 
     Args:
-        filename: Абсолютный или относительный адрес файла.
+        filename: Absolute or relative file address.
 
     Returns:
-        str: Возвращаем данные из файла.
+        str: Returning data from the file.
     """
     with open(filename, 'r') as file_obj:
         yaml_file = file_obj.read()
