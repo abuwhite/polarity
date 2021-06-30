@@ -1,11 +1,3 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/notabu/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/notabu/python-project-lvl2/actions)
+# python-project-lvl2
 
-### Python CI:
-[![Github CI](https://github.com/notabu/python-project-lvl2/actions/workflows/ci.yml/badge.svg)](https://github.com/notabu/python-project-lvl2/actions/workflows/ci.yml)
-
-### CodeClimate:
-[![Maintainability](https://api.codeclimate.com/v1/badges/80babc02ce31b73413bf/maintainability)](https://codeclimate.com/github/notabu/python-project-lvl2/maintainability)
-
-### Test coverage:
-[![Test Coverage](https://api.codeclimate.com/v1/badges/80babc02ce31b73413bf/test_coverage)](https://codeclimate.com/github/notabu/python-project-lvl2/test_coverage)
+[![Actions Status](https://github.com/notabu/python-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/notabu/python-project-lvl2/actions) [![Github CI](https://github.com/notabu/python-project-lvl2/actions/workflows/ci.yml/badge.svg)](https://github.com/notabu/python-project-lvl2/actions/workflows/ci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/80babc02ce31b73413bf/maintainability)](https://codeclimate.com/github/notabu/python-project-lvl2/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/80babc02ce31b73413bf/test_coverage)](https://codeclimate.com/github/notabu/python-project-lvl2/test_coverage)
