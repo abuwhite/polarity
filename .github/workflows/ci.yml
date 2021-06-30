@@ -12,7 +12,7 @@ on:
 jobs:
   # Сборка  
   build:
-    name: publish
+    name: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
