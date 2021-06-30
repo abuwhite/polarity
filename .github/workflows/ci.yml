@@ -17,7 +17,6 @@ jobs:
     strategy:
       matrix:
         python-version: [ 3.6, 3.7, 3.8 ]
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -31,6 +30,7 @@ jobs:
           make install
   # Тесты должны выполняться при каждом запуске workflow
   test:
+    needs: build
     name: linter & test
     runs-on: ubuntu-latest
     steps:
@@ -49,28 +49,7 @@ jobs:
       - name: test
         run: |
           make test
-      - name: test code coverage
-        run: make test-cov
-      - name: Publish test code coverage
+          make test-cov
         uses: paambaati/codeclimate-action@v2.7.5
         env:
-          CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f
-  publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v2
-      - name: sdist
-        uses: docker://snakepacker/python:all
-        with:
-          args: make sdist
-
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v2.5.0
-        with:
-          username: ${{ secrets.REGISTRY_LOGIN }}
-          password: ${{ secrets.REGISTRY_TOKEN }}
-          repository: notabu/gendiff
-          target: api
-          tags: 0.0.1, latest        
+          CC_TEST_REPORTER_ID: dade0d4f9d431c5e34d8bca9ad909ae6b4c8fadf38df7d15aee55b2e28eb968f      
