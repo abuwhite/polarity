@@ -20,17 +20,5 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl --force-reinstall
 
-deploy: build package-install install test test-cov lint
-
-
-test-stylish:
-	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
-
-test-plain:
-	poetry run gendiff --format plain tests/fixtures/file1.json tests/fixtures/file2.json
-
-test-json:
-	poetry run gendiff --format json tests/fixtures/file1.json tests/fixtures/file2.json
-
 gendiff:
 	poetry run gendiff

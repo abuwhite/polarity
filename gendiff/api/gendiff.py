@@ -3,11 +3,11 @@
 
 """The main client module of gendiff."""
 
-from gendiff.formatters.json import make_json
-from gendiff.formatters.plain import make_plain
-from gendiff.formatters.stylish import make_stylish
-from gendiff.make_diff import make_diffs
-from gendiff.parser import get_dict
+from gendiff.utils.json import make_json
+from gendiff.utils.plain import make_plain
+from gendiff.utils.stylish import make_stylish
+from gendiff.api.make_diff import make_diffs
+from gendiff.api.parser import get_dict
 
 
 def generate_diff(first_file, second_file, format_output='stylish'):

@@ -2,8 +2,8 @@
 """Test make_diff.py"""
 
 from gendiff import make_diffs
-from gendiff.formatters import stylish, plain, json
-from gendiff.parser import get_dict
+from gendiff.utils import stylish, plain, json
+from gendiff.api.parser import get_dict
 
 FIRST_JSON = 'tests/fixtures/file1.json'
 SECOND_JSON = 'tests/fixtures/file2.json'

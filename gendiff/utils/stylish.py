@@ -2,7 +2,7 @@
 
 """This is import function scripts."""
 
-from gendiff.constants import FLAGS, SPACE
+from gendiff.api.constants import FLAGS, SPACE
 
 
 def make_stylish(diffs_list, tier=0):
