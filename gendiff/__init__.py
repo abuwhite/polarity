@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-"""
-Сервис для нахождения разницы файлов.
-Проект в python hexlet.
-"""
+"""Сервис для нахождения разницы файлов."""
+
+from gendiff.api.gendiff import generate_diff
 from gendiff.api.make_diff import make_diffs
 
 __author__ = 'Boris Zhenikhov'
