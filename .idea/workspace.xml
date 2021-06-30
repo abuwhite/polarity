@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb51247a-3721-4bab-81cf-184ed289fac0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/correct_stylish.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/file1.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/file2.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/gen_diff.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/gen_diff.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/scripts/gendiff.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/scripts/gendiff.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gendiff/stylish.py" beforeDir="false" afterPath="$PROJECT_DIR$/gendiff/stylish.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/plain1.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/file1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/plain1.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/plain2.json" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/file2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/plain2.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/plain_files.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/plain_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_generate_diff.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_generate_diff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,16 +31,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/gendiff/cli.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gendiff/api/gendiff.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gendiff/scripts/cli.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gendiff/utils/stylish.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gendiff/api/make_diff.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gendiff/api/constants.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/fixtures/result_stylish.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/test_generate_diff.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/fixtures/file1.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/fixtures/correct_stylish.txt" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/gendiff/constants.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Makefile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/gendiff/scripts/gendiff.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/gendiff/stylish.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/gendiff/gen_diff.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/tests/fixtures/plain_file.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1sVJ32b1cWDL2NsTbLv2RZL7Qoq" />
   <component name="ProjectViewState">
