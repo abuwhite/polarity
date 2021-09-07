@@ -1,5 +1,7 @@
 install:
 	poetry install
+	make build
+	python3 -m pip install --user dist/*.whl --force-reinstall
 
 build:
 	rm -rf dist/*
@@ -13,12 +15,6 @@ test:
 
 test-cov:
 	poetry run pytest --cov=gendiff tests/ --cov-report xml
-
-publish:
-	poetry publish --dry-run
-
-package-install:
-	python3 -m pip install --user dist/*.whl --force-reinstall
 
 gendiff:
 	poetry run gendiff
