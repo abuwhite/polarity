@@ -27,4 +27,4 @@ Section "group2" was removed
 ```
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/znhv/differenpy/blob/main/LICENSE)
