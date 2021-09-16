@@ -8,13 +8,13 @@ build:
 	poetry build
 
 lint:
-	poetry run flake8 gendiff
+	poetry run flake8 diffepy
 
 test:
-	poetry run pytest gendiff tests/
+	poetry run pytest diffepy tests/
 
 test-cov:
-	poetry run pytest --cov=gendiff tests/ --cov-report xml
+	poetry run pytest --cov=diffepy tests/ --cov-report xml
 
-gendiff:
-	poetry run gendiff
+diffepy:
+	poetry run diffepy
