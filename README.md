@@ -1,19 +1,27 @@
-# Differenpy
+# Diffepy
 
 [![Github CI](https://github.com/notabu/python-project-lvl2/actions/workflows/ci.yml/badge.svg)](https://github.com/notabu/python-project-lvl2/actions/workflows/ci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/80babc02ce31b73413bf/maintainability)](https://codeclimate.com/github/notabu/python-project-lvl2/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/80babc02ce31b73413bf/test_coverage)](https://codeclimate.com/github/notabu/python-project-lvl2/test_coverage)
 
 
 A difference calculator is a program that determines the difference between two data structures. This is a popular task, for which there are many online services http://www.jsondiff.com/. Such a mechanism, for example, is used in the output of tests or in the automatic tracking of changes in configuration files.
 
+## Prerequisite
+* Poetry
+osx / linux / bashonwindows install instructions
+```shell
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+```
+
+windows powershell install instructions
+```shell
+(Invoke-WebRequest -Uri https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py -UseBasicParsing).Content | python -
+```
+
 ## Installation
 
 Clone the repo and install packages
 ```sh
-git clone git@github.com:znhv/differenpy.git
-
-cd defferenpy
-   
-make install
+git clone https://github.com/znhv/diffepy.git && cd diffepy && make install
 ```
    
 ## Usage
