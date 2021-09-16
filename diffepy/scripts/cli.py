@@ -4,7 +4,7 @@
 
 import argparse
 
-from gendiff.api.gendiff import generate_diff
+from diffepy.api.gendiff import generate_diff
 
 
 def get_args():

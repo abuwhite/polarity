@@ -28,7 +28,7 @@ git clone https://github.com/znhv/diffepy.git && cd diffepy && make install
 ## Usage
 
 ```shell
-$ gendiff --format plain filepath1.json filepath2.yml
+$ diffepy --format plain filepath1.json filepath2.yml
 
 Setting "common.setting4" was added with value: False
 Setting "group1.baz" was updated. From 'bas' to 'bars'

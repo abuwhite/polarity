@@ -4,7 +4,7 @@ version = "0.1.5"
 description = ""
 authors = ["notabu <samyyklass@gmail.com>"]
 packages = [
-  { include = "gendiff" },
+  { include = "diffepy" },
 ]
 
 [tool.poetry.dependencies]

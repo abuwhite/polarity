@@ -2,8 +2,8 @@
 
 """Сервис для нахождения разницы файлов."""
 
-from gendiff.api.gendiff import generate_diff
-from gendiff.api.make_diff import make_diffs
+from diffepy.api.gendiff import generate_diff
+from diffepy.api.make_diff import make_diffs
 
 __author__ = 'Boris Zhenikhov'
 __maintainer__ = __author__
