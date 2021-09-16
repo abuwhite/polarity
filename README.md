@@ -6,7 +6,7 @@
 A difference calculator is a program that determines the difference between two data structures. This is a popular task, for which there are many online services http://www.jsondiff.com/. Such a mechanism, for example, is used in the output of tests or in the automatic tracking of changes in configuration files.
 
 ## Prerequisite
-* Poetry
+**[Poetry](https://python-poetry.org)**
 osx / linux / bashonwindows install instructions
 ```shell
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
