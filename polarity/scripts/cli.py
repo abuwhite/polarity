@@ -4,7 +4,7 @@
 
 import argparse
 
-from diffepy.api.gendiff import generate_diff
+from polarity.api.gendiff import generate_diff
 
 
 def get_args():

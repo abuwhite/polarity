@@ -2,7 +2,7 @@
 
 """This is import function scripts."""
 
-from diffepy.api.constants import FLAGS, SPACE
+from polarity.api.constants import FLAGS, SPACE
 
 
 def make_stylish(diffs_list, tier=0):

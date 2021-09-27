@@ -2,7 +2,7 @@
 
 """Module with the function make_diffs."""
 
-from diffepy.api.constants import CON_VAL, FLAG, NAME
+from polarity.api.constants import CON_VAL, FLAG, NAME
 
 
 def make_diffs(data1, data2):

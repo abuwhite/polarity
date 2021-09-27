@@ -8,13 +8,13 @@ build:
 	poetry build
 
 lint:
-	poetry run flake8 diffepy
+	poetry run flake8 polarity
 
 test:
-	poetry run pytest diffepy tests/
+	poetry run pytest polarity tests/
 
 test-cov:
-	poetry run pytest --cov=diffepy tests/ --cov-report xml
+	poetry run pytest --cov=polarity tests/ --cov-report xml
 
-diffepy:
-	poetry run diffepy
+polarity:
+	poetry run polarity

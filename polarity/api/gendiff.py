@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""The main client module of diffepy."""
+"""The main client module of polarity."""
 
-from diffepy.api.make_diff import make_diffs
-from diffepy.api.parser import get_dict
-from diffepy.utils.json import make_json
-from diffepy.utils.plain import make_plain
-from diffepy.utils.stylish import make_stylish
+from polarity.api.make_diff import make_diffs
+from polarity.api.parser import get_dict
+from polarity.utils.json import make_json
+from polarity.utils.plain import make_plain
+from polarity.utils.stylish import make_stylish
 
 
 def generate_diff(first_file, second_file, format_output='stylish'):

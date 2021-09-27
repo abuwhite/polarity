@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Test make_diff.py"""
 
-from diffepy import make_diffs
-from diffepy.utils import stylish, plain, json
-from diffepy.api.parser import get_dict
+from polarity import make_diffs
+from polarity.utils import stylish, plain, json
+from polarity.api.parser import get_dict
 
 FIRST_JSON = 'tests/fixtures/file1.json'
 SECOND_JSON = 'tests/fixtures/file2.json'

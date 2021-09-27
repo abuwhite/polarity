@@ -22,13 +22,13 @@ windows powershell install instructions
 
 Clone the repo and install packages
 ```sh
-git clone https://github.com/znhv/diffepy.git && cd diffepy && make install
+git clone https://github.com/znhv/diffepy.git && cd polarity && make install
 ```
    
 ## Usage
 
 ```shell
-$ diffepy --format plain filepath1.json filepath2.yml
+$ polarity --format plain filepath1.json filepath2.yml
 
 Setting "common.setting4" was added with value: False
 Setting "group1.baz" was updated. From 'bas' to 'bars'
