@@ -51,6 +51,7 @@ def generate_plain_string(diffs, parent_name=""):
             plains += "{b} added with value: {v}\n".format(b=key_str, v=val_str)
         elif condition == "removed":
             plains += "{base} removed\n".format(base=key_str)
+
     return plains
 
 
