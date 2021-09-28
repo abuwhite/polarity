@@ -15,6 +15,7 @@ def make_json(diffs) -> str:
         json_output(str): Json output
     """
     formatted_dict = dict_formatting(diffs)
+
     json_output: str = json.dumps(formatted_dict, sort_keys=True, indent=4)
     if not formatted_dict:
         return "{\n}"
