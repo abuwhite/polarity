@@ -1,16 +1,15 @@
 #######################################
-#       Author: Boris Zhenikhov       #
-#     Email: samyyklass@gmail.com     #
+#     Author: Boris Zhenikhov         #
+#     Email: znhv@yandex.com          #
 #######################################
 
 
-name: CI
+name: build
 
 on:
   - push
 
 jobs:
-  # Сборка  
   build:
     name: publish
     runs-on: ubuntu-latest
