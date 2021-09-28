@@ -10,7 +10,7 @@ from polarity.utils.plain import make_plain
 from polarity.utils.stylish import make_stylish
 
 
-def generate_diff(first_file, second_file, format_output='stylish'):
+def generate_diff(first_file, second_file, format_output="stylish"):
     """Get the difference of the files.
 
     Args:
@@ -24,8 +24,8 @@ def generate_diff(first_file, second_file, format_output='stylish'):
     dict1 = get_dict(first_file)
     dict2 = get_dict(second_file)
     diff = make_diffs(dict1, dict2)
-    if format_output == 'plain':
+    if format_output == "plain":
         return make_plain(diff)
-    elif format_output == 'json':
+    elif format_output == "json":
         return make_json(diff)
     return make_stylish(diff)

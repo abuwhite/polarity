@@ -17,7 +17,7 @@ def open_file(filename):
     Returns:
         str: Returning data from the file.
     """
-    with open(filename, 'r') as file_obj:
+    with open(filename, "r") as file_obj:
         return file_obj.read()
 
 
@@ -60,8 +60,8 @@ def get_dict(filename):
         str: Returning file data.
     """
     extension = os.path.splitext(filename)[-1]
-    if extension == '.json':
+    if extension == ".json":
         return json_parse(filename)
-    elif extension in {'.yml', '.yaml'}:
+    elif extension in {".yml", ".yaml"}:
         return yaml_parse(filename)
-    raise NotImplementedError('Unsupported file type {ex}'.format(ex=extension))
+    raise NotImplementedError("Unsupported file type {ex}".format(ex=extension))

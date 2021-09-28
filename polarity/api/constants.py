@@ -2,16 +2,16 @@
 
 """Constants."""
 
-FLAG = 'status'
-SPACE = '    '
+FLAG = "status"
+SPACE = "    "
 FLAGS = {
-    'is_dict': '',
-    'changed': '+',
-    'changed_new': '+',
-    'changed_old': '-',
-    'unchanged': ' ',
-    'added': '+',
-    'removed': '-',
+    "is_dict": "",
+    "changed": "+",
+    "changed_new": "+",
+    "changed_old": "-",
+    "unchanged": " ",
+    "added": "+",
+    "removed": "-",
 }
-NAME = 'name'
-CON_VAL = 'value'
+NAME = "name"
+CON_VAL = "value"

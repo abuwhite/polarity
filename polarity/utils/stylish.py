@@ -15,23 +15,23 @@ def make_stylish(diffs_list, tier=0):
     Returns:
         str: Plain format.
     """
-    diffs: str = '{'
+    diffs: str = "{"
     pit: str = SPACE * tier
 
     for diff in diffs_list:
-        diffs = '{a}{b}'.format(a=diffs, b='\n')
-        name = diff.get('name')
-        condition = diff.get('status')
-        s_val = diff.get('value')
+        diffs = "{a}{b}".format(a=diffs, b="\n")
+        name = diff.get("name")
+        condition = diff.get("status")
+        s_val = diff.get("value")
         flag = FLAGS.get(condition)
 
-        if condition == 'is_dict':
-            diffs += '{i}  {f}  {n}: '.format(i=pit, f=flag, n=name)
+        if condition == "is_dict":
+            diffs += "{i}  {f}  {n}: ".format(i=pit, f=flag, n=name)
             diffs += make_stylish(s_val, tier + 1)
         else:
             f_val = formatter(s_val, pit + SPACE)
-            diffs += '{i}  {f} {n}: {v}'.format(i=pit, f=flag, n=name, v=f_val)
-    diffs += '{n}{i}}}'.format(n='\n', i=pit)
+            diffs += "{i}  {f} {n}: {v}".format(i=pit, f=flag, n=name, v=f_val)
+    diffs += "{n}{i}}}".format(n="\n", i=pit)
     return diffs
 
 
@@ -46,15 +46,15 @@ def formatter(diff_val, pit):
         str: Formatter.
     """
     if isinstance(diff_val, bool):
-        return 'true' if diff_val else 'false'
+        return "true" if diff_val else "false"
     if diff_val is None:
-        return 'null'
+        return "null"
     if isinstance(diff_val, dict):
-        string = '{\n'
+        string = "{\n"
         for key, second in diff_val.items():
-            string += '{s}{i}{k}: '.format(s=SPACE, i=pit, k=key)
+            string += "{s}{i}{k}: ".format(s=SPACE, i=pit, k=key)
             string += formatter(second, pit=pit + SPACE)
-            string += '{n}'.format(n='\n')
-        string += '{i}}}'.format(i=pit)
+            string += "{n}".format(n="\n")
+        string += "{i}}}".format(i=pit)
         return string
     return str(diff_val)
