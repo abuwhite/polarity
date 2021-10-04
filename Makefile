@@ -38,5 +38,5 @@ pytest-cov:
 build: test
 	@poetry build
 
-oasis:
+polarity:
 	poetry run polarity
