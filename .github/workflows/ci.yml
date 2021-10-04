@@ -43,13 +43,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
           make install
-      - name: lint
-        run: make lint    
+      - name: Test
+        run: make test
       - name: test
         run: |
           make test
-      - name: test code coverage
-        run: make test-cov
       - name: Publish test code coverage
         uses: paambaati/codeclimate-action@v2.7.5
         env:
