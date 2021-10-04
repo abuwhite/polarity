@@ -20,7 +20,7 @@ def get_args():
     return parser.parse_args()
 
 
-def main():
+def run():
     """Скрипт запуска сравнения файлов."""
     print(
         generate_diff(
@@ -32,4 +32,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()
